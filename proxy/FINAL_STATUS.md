@@ -69,3 +69,27 @@ tail -20 /var/www/html/proxy/logs/error.log
 - /var/www/html/proxy/config/blocked-domains.txt - List of blocked domains
 - /var/www/html/index.html - Updated with proxy URLs
 - /var/www/html/index.html.backup* - Backup files
+
+## Update: Local Resource Hosting (2025-07-31 23:03)
+
+### Successfully Downloaded and Configured:
+- ✅ **35 Framer font files** downloaded locally to `/var/www/html/assets/external/framer/assets/`
+- ✅ **Updated index.html** to use local paths instead of proxy paths
+- ✅ **Configured Nginx** to serve local resources with proper caching headers
+- ✅ **All fonts now accessible** at `https://divita.ae/assets/external/framer/assets/*`
+
+### Benefits:
+1. **No SSL handshake issues** - files served directly from our server
+2. **Better performance** - no proxy overhead
+3. **More reliable** - no dependency on external CDN availability
+4. **Proper caching** - 30-day browser cache configured
+
+### Verification:
+```bash
+# Check font availability
+curl -I https://divita.ae/assets/external/framer/assets/1K3W8DizY3v4emK8Mb08YHxTbs.woff2
+# Result: HTTP/2 200 with proper Content-Type: font/woff2
+```
+
+### Remaining Issues:
+- ❌ **my.atlist.com iframe** - Still needs alternative solution for embedded map
