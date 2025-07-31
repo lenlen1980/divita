@@ -67,7 +67,7 @@ import{a as be}from"./chunk-F37CKP2X.mjs";import{a as E,b as I,c as D,d as v,e a
   <title>Land Search</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+    @import url('https://divita.ae/proxy/fonts/css?family=Inter:wght@400;500;600&display=swap');
 
     * {
       box-sizing: border-box;
