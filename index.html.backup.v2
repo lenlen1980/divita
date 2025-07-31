@@ -15786,8 +15786,8 @@
                             <div class="framer-yzjc6j-container">
                                 <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                                     <iframe
-                                        src="/proxy/atlist/map/4e71f7d6-f338-430d-8a32-88ce670c2b16?share=true"
-                                        allow="geolocation 'self' /proxy/atlist"
+                                        src="https://my.atlist.com/map/4e71f7d6-f338-430d-8a32-88ce670c2b16?share=true"
+                                        allow="geolocation 'self' https://my.atlist.com"
                                         width="100%"
                                         height="100%"
                                         loading="lazy"

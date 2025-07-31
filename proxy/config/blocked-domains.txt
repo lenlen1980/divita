@@ -3,9 +3,11 @@ fonts.gstatic.com
 cdn.jsdelivr.net
 unpkg.com
 cdnjs.cloudflare.com
+framerusercontent.com
 facebook.com
 instagram.com
 twitter.com
 youtube.com
 google-analytics.com
 googletagmanager.com
+my.atlist.com
