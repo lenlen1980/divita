@@ -8168,7 +8168,7 @@
         </style>
     </head>
     <body>
-        <script async src="/assets/stubs/framer-events.js" data-fid="133bf0ee096b683978cf3ee2892fd5d997d7af45adc5e886ec71fbb6ff487df5" data-no-nt></script>
+        <script async src="https://events.framer.com/script?v=2" data-fid="133bf0ee096b683978cf3ee2892fd5d997d7af45adc5e886ec71fbb6ff487df5" data-no-nt></script>
 
         <div
             id="main"
