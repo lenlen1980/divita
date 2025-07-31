@@ -1,0 +1,6 @@
+https://divita.ae
+http://divita.ae
+https://www.divita.ae
+http://www.divita.ae
+localhost
+127.0.0.1
