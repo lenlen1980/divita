@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Map - Loading</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            height: calc(100vh - 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #334155;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            max-width: 400px;
+            border: 1px solid #e2e8f0;
+        }
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+        h1 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        .regions {
+            text-align: left;
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+        .regions h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+        .region-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .region-list li {
+            padding: 3px 0;
+            color: #64748b;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #fbbf24;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .retry-info {
+            margin-top: 20px;
+            padding: 12px;
+            background: #fef3c7;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🗺️</div>
+        <h1><span class="status-indicator"></span>UAE Development Map</h1>
+        <p>Interactive map is connecting...</p>
+        
+        <div class="regions">
+            <h3>📍 Available Regions:</h3>
+            <ul class="region-list">
+                <li>• Dubai</li>
+                <li>• Abu Dhabi</li>
+                <li>• Sharjah</li>
+                <li>• Ajman</li>
+                <li>• Ras Al Khaimah</li>
+                <li>• Fujairah</li>
+                <li>• Umm Al Quwain</li>
+            </ul>
+        </div>
+        
+        <div class="retry-info">
+            🔄 Attempting to connect to map service...
+        </div>
+    </div>
+    
+    <script>
+        let retryCount = 0;
+        const maxRetries = 5;
+        
+        function updateStatus() {
+            const statusElement = document.querySelector('.retry-info');
+            retryCount++;
+            
+            if (retryCount <= maxRetries) {
+                statusElement.innerHTML = `🔄 Connection attempt ${retryCount}/${maxRetries}...`;
+            } else {
+                statusElement.innerHTML = `⚠️ Map service temporarily unavailable. Please refresh page or contact support.`;
+                statusElement.style.background = '#fecaca';
+                statusElement.style.color = '#991b1b';
+            }
+        }
+        
+        // Попытка подключения каждые 10 секунд
+        const retryInterval = setInterval(function() {
+            updateStatus();
+            
+            if (retryCount > maxRetries) {
+                clearInterval(retryInterval);
+                return;
+            }
+            
+            // Проверка доступности оригинального сервиса
+            fetch('https://my.atlist.com/map/4e71f7d6-f338-430d-8a32-88ce670c2b16?share=true', {
+                mode: 'no-cors',
+                cache: 'no-cache'
+            }).then(() => {
+                // Если сервис доступен, перезагружаем страницу
+                window.location.reload();
+            }).catch(() => {
+                // Продолжаем ожидание
+            });
+        }, 10000);
+        
+        // Первая попытка через 3 секунды
+        setTimeout(updateStatus, 3000);
+    </script>
+</body>
+</html>

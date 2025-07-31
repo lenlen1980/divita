@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Development Map - Offline</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        .features {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .features h3 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .features ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .features li {
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+        .contact-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        .contact-info h3 {
+            margin-top: 0;
+            color: #fff;
+        }
+        .status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="status">🔄 Map Service Temporarily Unavailable</div>
+    <div class="container">
+        <div class="icon">🗺️</div>
+        <h1>UAE Development Regions Map</h1>
+        <p>Interactive map is temporarily unavailable. Please find key information about UAE development regions below:</p>
+        
+        <div class="features">
+            <h3>📍 Key Development Areas:</h3>
+            <ul>
+                <li><strong>Dubai</strong> - Leading commercial and tourism hub</li>
+                <li><strong>Abu Dhabi</strong> - Capital with major infrastructure projects</li>
+                <li><strong>Sharjah</strong> - Cultural and industrial center</li>
+                <li><strong>Ajman</strong> - Emerging investment opportunities</li>
+                <li><strong>Ras Al Khaimah</strong> - Northern economic zone</li>
+                <li><strong>Fujairah</strong> - East coast development</li>
+                <li><strong>Umm Al Quwain</strong> - Growing residential sector</li>
+            </ul>
+        </div>
+        
+        <div class="contact-info">
+            <h3>📞 For Detailed Information:</h3>
+            <p>Contact our investment consultants for current land development opportunities and detailed regional analysis.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Попытка подключения к оригинальной карте каждые 30 секунд
+        setInterval(function() {
+            fetch('https://my.atlist.com/map/4e71f7d6-f338-430d-8a32-88ce670c2b16?share=true')
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    }
+                })
+                .catch(() => {
+                    // Сервис недоступен, остаемся на fallback
+                });
+        }, 30000);
+    </script>
+</body>
+</html>

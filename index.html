@@ -81,27 +81,27 @@
         <style data-framer-breakpoint-css>
             @media (min-width: 1920px) {
                 .hidden-z2zsk0 {
-                    display: none !important;
+                    display: block;
                 }
             }
             @media (min-width: 1400px) and (max-width: 1919px) {
                 .hidden-1s9rbp4 {
-                    display: none !important;
+                    display: block;
                 }
             }
             @media (min-width: 900px) and (max-width: 1399px) {
                 .hidden-mfv85f {
-                    display: none !important;
+                    display: block;
                 }
             }
             @media (min-width: 700px) and (max-width: 899px) {
                 .hidden-cpryhj {
-                    display: none !important;
+                    display: block;
                 }
             }
             @media (max-width: 699px) {
                 .hidden-1th5opd {
-                    display: none !important;
+                    display: block;
                 }
             }
         </style>
@@ -8166,13 +8166,34 @@
                 pointer-events: none;
             }
         </style>
-    </head>
+    <style>
+/* Block 05 Slider Mobile Fix CSS */
+[data-framer-name="05"] .hidden-cpryhj {
+    display: block !important;
+}
+
+[data-framer-name="05"] .hidden-1th5opd {
+    display: block !important;
+}
+
+[data-framer-name="05"] {
+    display: block !important;
+    visibility: visible !important;
+}
+
+@media (max-width: 699px) {
+    [data-framer-name="05"] .framer-m6qgs2 {
+        display: block !important;
+    }
+}
+</style>
+</head>
     <body>
-        <script async src="/assets/stubs/framer-events.js" data-fid="133bf0ee096b683978cf3ee2892fd5d997d7af45adc5e886ec71fbb6ff487df5" data-no-nt></script>
+        <!-- Framer events disabled for mobile compatibility -->
 
         <div
             id="main"
-            data-framer-hydrate-v2='{"routeId":"VstcGdhkb","localeId":"default","breakpoints":[{"hash":"z2zsk0","mediaQuery":"(min-width: 1920px)"},{"hash":"1s9rbp4","mediaQuery":"(min-width: 1400px) and (max-width: 1919px)"},{"hash":"mfv85f","mediaQuery":"(min-width: 900px) and (max-width: 1399px)"},{"hash":"cpryhj","mediaQuery":"(min-width: 700px) and (max-width: 899px)"},{"hash":"1th5opd","mediaQuery":"(max-width: 699px)"}]}'
+            data-framer-hydrate-disabled="true"
             data-framer-ssr-released-at="2025-07-23T07:48:11.716Z"
             data-framer-page-optimized-at="2025-07-28T13:01:31.403Z"
             data-framer-generated-page
@@ -16165,8 +16186,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ssr-variant hidden-cpryhj hidden-1s9rbp4 hidden-mfv85f">
-                            <div class="framer-5etf6q-container hidden-1th5opd">
+                        <div class="ssr-variant  ">
+                            <div class="framer-5etf6q-container ">
                                 <div class="framer-4uoTW framer-dihf30 framer-v-194gmyx" data-framer-name="Variant 3" style="width: 100%;">
                                     <div class="framer-urt1sm">
                                         <div class="framer-1bhfi7c" data-framer-name="Buttone">
@@ -16894,7 +16915,7 @@
                             </div>
                         </div>
                         <div class="ssr-variant hidden-1th5opd hidden-z2zsk0 hidden-1s9rbp4 hidden-mfv85f">
-                            <div class="framer-5etf6q-container hidden-1th5opd">
+                            <div class="framer-5etf6q-container">
                                 <div class="framer-4uoTW framer-dihf30 framer-v-dihf30" data-framer-name="6/360" style="width: 100%;">
                                     <div class="framer-urt1sm">
                                         <div class="framer-1bhfi7c" data-framer-name="Buttone">
@@ -17614,7 +17635,7 @@
                             </div>
                         </div>
                         <div class="ssr-variant hidden-1th5opd hidden-z2zsk0 hidden-cpryhj hidden-mfv85f">
-                            <div class="framer-5etf6q-container hidden-1th5opd">
+                            <div class="framer-5etf6q-container">
                                 <div class="framer-4uoTW framer-dihf30 framer-v-194gmyx" data-framer-name="Variant 3" style="height: 100%; width: 100%;">
                                     <div class="framer-urt1sm">
                                         <div class="framer-1bhfi7c" data-framer-name="Buttone">
@@ -18342,7 +18363,7 @@
                             </div>
                         </div>
                         <div class="ssr-variant hidden-1th5opd hidden-z2zsk0 hidden-cpryhj hidden-1s9rbp4">
-                            <div class="framer-5etf6q-container hidden-1th5opd">
+                            <div class="framer-5etf6q-container">
                                 <div class="framer-4uoTW framer-dihf30 framer-v-dihf30" data-framer-name="6/360" style="width: 100%;">
                                     <div class="framer-urt1sm">
                                         <div class="framer-1bhfi7c" data-framer-name="Buttone">
@@ -26002,5 +26023,133 @@
                 />
             </svg>
         </div>
+    </body>
+</html>
+
+<!-- Smart Block 05 Slider Preservation -->
+<script>
+(function() {
+    console.log("🎯 Smart Block 05 Slider Preservation Loading...");
+    
+    let block05 = null;
+    let originalDisplay = new Map();
+    
+    function findBlock05() {
+        block05 = document.querySelector('[data-framer-name="05"]');
+        return block05 !== null;
+    }
+    
+    function preserveSliderOnMobile() {
+        if (!block05) return;
+        
+        const width = window.innerWidth;
+        
+        // Только для мобильных разрешений (меньше 700px)
+        if (width < 700) {
+            console.log("📱 Mobile detected, preserving slider at", width + "px");
+            
+            // Ищем элементы, которые стали скрытыми
+            const hiddenElements = block05.querySelectorAll('[style*="display: none"], .hidden');
+            
+            hiddenElements.forEach(el => {
+                // Сохраняем оригинальное состояние
+                if (!originalDisplay.has(el)) {
+                    originalDisplay.set(el, {
+                        display: el.style.display,
+                        className: el.className
+                    });
+                }
+                
+                // Убираем скрытие только если это не намеренно скрытый элемент
+                if (!el.hasAttribute('data-intentionally-hidden')) {
+                    el.style.display = '';
+                    el.classList.remove('hidden');
+                    console.log("👁️ Restored visibility for element:", el);
+                }
+            });
+            
+            // Убеждаемся, что сам блок 05 видим
+            if (block05.style.display === 'none') {
+                block05.style.display = '';
+                console.log("🔓 Restored Block 05 visibility");
+            }
+        }
+    }
+    
+    // Отслеживаем критические изменения размера
+    let resizeTimeout;
+    function handleResize() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const width = window.innerWidth;
+            
+            // Особое внимание переходу через 700px
+            if (width === 699 || width === 698 || (width >= 695 && width <= 705)) {
+                console.log("🚨 Critical width detected:", width);
+                preserveSliderOnMobile();
+                
+                // Дополнительные проверки с задержкой
+                setTimeout(preserveSliderOnMobile, 100);
+                setTimeout(preserveSliderOnMobile, 300);
+            }
+        }, 50);
+    }
+    
+    // Более умный MutationObserver
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && 
+                mutation.attributeName === 'style' &&
+                block05 && 
+                block05.contains(mutation.target)) {
+                
+                const element = mutation.target;
+                const width = window.innerWidth;
+                
+                // Только для мобильных и только если элемент был скрыт
+                if (width < 700 && element.style.display === 'none') {
+                    console.log("🛡️ Blocked hiding attempt on mobile for:", element);
+                    element.style.display = '';
+                }
+            }
+        });
+    });
+    
+    // Инициализация
+    function init() {
+        if (!findBlock05()) {
+            setTimeout(init, 500);
+            return;
+        }
+        
+        console.log("✅ Block 05 found, starting protection");
+        
+        // Запускаем наблюдение
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['style', 'class'],
+            subtree: true
+        });
+        
+        // Обработчики событий
+        window.addEventListener('resize', handleResize);
+        
+        // Первоначальная проверка
+        preserveSliderOnMobile();
+        
+        console.log("🛡️ Smart Block 05 protection activated");
+    }
+    
+    // Запуск
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    
+    // Дополнительные запуски для надежности
+    setTimeout(init, 1000);
+})();
+</script>
     </body>
 </html>
