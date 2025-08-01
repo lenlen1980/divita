@@ -1,8 +1,5 @@
 {
-  "timestamp": "2025-08-01T17:48:19Z",
-  "health_score": 60,
+  "timestamp": "2025-08-01T18:41:14Z",
+  "health_score": 93,
   "total_checks": 15,
-  "passed": 9,
-  "warnings": 3,
-  "errors": 3
-}
+  "passed": 14,

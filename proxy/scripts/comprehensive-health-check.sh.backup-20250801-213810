@@ -11,27 +11,6 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-# Custom function for page load time
-check_page_load() {
-    echo -n "   Page Load Time (ms): "
-    total_checks=$((total_checks + 1))
-    
-    load_time=$(curl -k -s -w '%{time_total}' -o /dev/null --max-time 5 https://80.93.61.62 2>/dev/null)
-    if [ -n "$load_time" ]; then
-        load_ms=$(python3 -c "print(int(float('$load_time') * 1000))" 2>/dev/null || echo "0")
-        if [ "$load_ms" -lt 2000 ] && [ "$load_ms" -gt 0 ]; then
-            echo -e "${GREEN}✓ $load_ms (OK)${NC}"
-            passed_checks=$((passed_checks + 1))
-        else
-            echo -e "${YELLOW}⚠ $load_ms (Slow)${NC}"
-            warnings=$((warnings + 1))
-        fi
-    else
-        echo -e "${RED}✗ No data${NC}"
-        errors=$((errors + 1))
-    fi
-}
-
 # Health metrics
 total_checks=0
 passed_checks=0
@@ -97,20 +76,20 @@ check_warn() {
 echo -e "${BLUE}1. INFRASTRUCTURE (CRITICAL)${NC}"
 echo "==============================="
 check "Nginx Status" "systemctl is-active nginx" "active" "true"
-check "HTTPS Response" "curl -k -s -o /dev/null -w '%{http_code}' --max-time 5 https://80.93.61.62" "200" "true"
-check "HTTP Redirect" "curl -k -s -o /dev/null -w '%{http_code}' http://80.93.61.62" "301" "true"
+check "HTTPS Response" "curl -s -o /dev/null -w '%{http_code}' --max-time 5 https://divita.ae" "200" "true"
+check "HTTP Redirect" "curl -s -o /dev/null -w '%{http_code}' http://divita.ae" "301" "true"
 
 echo ""
 echo -e "${BLUE}2. PROXY ENDPOINTS${NC}"
 echo "===================="
-check "Google Fonts API" "curl -k -s -o /dev/null -w '%{http_code}' --max-time 5 'https://80.93.61.62/proxy/fonts/api/css?family=Inter'" "200" "false"
-check "jsDelivr CDN" "curl -k -s -o /dev/null -w '%{http_code}' --max-time 5 'https://80.93.61.62/proxy/jsdelivr/npm/jquery@3.6.4/dist/jquery.min.js'" "200" "false"
+check "Google Fonts API" "curl -s -o /dev/null -w '%{http_code}' --max-time 5 'https://divita.ae/proxy/fonts/api/css?family=Inter'" "200" "false"
+check "jsDelivr CDN" "curl -s -o /dev/null -w '%{http_code}' --max-time 5 'https://divita.ae/proxy/jsdelivr/npm/jquery@3.6.4/dist/jquery.min.js'" "200" "false"
 check "Local Assets" "test -d /var/www/html/assets && echo 'exists'" "exists" "true"
 
 echo ""
 echo -e "${BLUE}3. PERFORMANCE METRICS${NC}"
 echo "========================"
-check_page_load
+check_warn "Page Load Time (ms)" "curl -s -o /dev/null -w '%{time_total}' --max-time 10 https://divita.ae | awk '{print int($1*1000)}'" "1000" "-lt"
 check_warn "Cache Size (MB)" "du -sm /var/www/html/proxy/cache 2>/dev/null | cut -f1" "100" "-lt"
 check_warn "Error Rate (last hour)" "grep \"\$(date '+%d/%b/%Y:%H' -d '1 hour ago')\" /var/www/html/proxy/logs/access.log 2>/dev/null | wc -l" "10" "-lt"
 
@@ -156,3 +135,7 @@ cat > /var/www/html/proxy/logs/health-metrics.json << METRICS
   "health_score": $health_score,
   "total_checks": $total_checks,
   "passed": $passed_checks,
+  "warnings": $warnings,
+  "errors": $errors
+}
+METRICS
