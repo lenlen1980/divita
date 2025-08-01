@@ -69,7 +69,7 @@
 ### 1. Процедура деплоя
 ```bash
 # Подключение к серверу
-ssh root@divita.ae
+ssh root@80.93.61.62
 
 # Переход в рабочую директорию
 cd /var/www/html
@@ -101,7 +101,7 @@ systemctl status nginx
 ### Этап 1: Анализ и подготовка (День 1)
 1. **Подключение к серверу и анализ**
    ```bash
-   ssh ssh@divita.ae
+   ssh root@80.93.61.62
    sudo nginx -t  # Проверка текущей конфигурации
    sudo systemctl status nginx
    ls -la /var/www/html/

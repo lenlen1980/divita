@@ -6,7 +6,7 @@
 
 1. **Подключение к серверу:**
    ```bash
-   ssh root@divita.ae
+   ssh root@80.93.61.62
    cd /var/www/html/proxy
    ```
 
