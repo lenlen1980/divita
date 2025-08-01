@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-08-01T18:51:26.803Z",
+  "tests": [
+    {
+      "site": "local",
+      "url": "https://80.93.61.62",
+      "loadTime": 0,
+      "title": "",
+      "errors": [
+        "net::ERR_CERT_COMMON_NAME_INVALID at https://80.93.61.62"
+      ],
+      "elements": {},
+      "status": "error"
+    }
+  ]
+}
