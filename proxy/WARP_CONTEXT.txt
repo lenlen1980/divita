@@ -1,0 +1,47 @@
+# DIVITA Project Context for Warp AI
+
+## Project Overview
+Proxy server setup for divita.ae to bypass Russian internet blocks.
+Server: root@divita.ae | Directory: /var/www/html
+
+## Current Status
+- ✅ Proxy: Active
+- ✅ Images: Localized (0 errors)
+- ✅ Resources: Cached locally
+- ⚠️ Minor 404s: .mjs.map files (non-critical)
+
+## Key Commands
+```bash
+ssh root@divita.ae
+cd /var/www/html/proxy
+./scripts/monitor.sh          # Check status
+./scripts/test-proxy.sh       # Test endpoints
+./scripts/deploy.sh          # Deploy config
+tail -20 logs/error.log      # Check errors
+```
+
+## Directory Structure
+/var/www/html/
+├── proxy/               # Main proxy config
+│   ├── scripts/        # Automation scripts
+│   ├── logs/          # Access/error logs
+│   └── README.md      # Full documentation
+├── assets/            # Localized resources
+└── index.html        # Main site
+
+## Quick Actions
+1. Status check: Run monitor.sh
+2. Test proxy: Run test-proxy.sh
+3. View logs: Check logs/error.log
+4. Update config: Edit nginx config → deploy.sh
+
+## Problem Resolution
+- New 404s → Run create-missing-module-stubs.sh
+- Performance → Check cache size, clear old files
+- Errors → Check error.log, test endpoints
+
+## Important Files
+- README.md: Full documentation
+- QUICK_START.md: New team member guide
+- /etc/nginx/sites-available/divita: Nginx config
+
