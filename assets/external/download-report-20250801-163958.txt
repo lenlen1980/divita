@@ -1,0 +1,64 @@
+DIVITA Resource Download Report
+Generated: Пт 01 авг 2025 16:39:58 MSK
+
+Downloaded Files:
+-----------------
+/var/www/html/assets/external/framer/assets/1K3W8DizY3v4emK8Mb08YHxTbs.woff2
+/var/www/html/assets/external/framer/assets/1ZFS7N918ojhhd0nQWdj3jz4w.woff2
+/var/www/html/assets/external/framer/assets/4RAEQdEOrcnDkhHiiCbJOw92Lk.woff2
+/var/www/html/assets/external/framer/assets/5A3Ce6C9YYmCjpQx9M4inSaKU.woff2
+/var/www/html/assets/external/framer/assets/5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2
+/var/www/html/assets/external/framer/assets/6mJuEAguuIuMog10gGvH5d3cl8.woff2
+/var/www/html/assets/external/framer/assets/A0Wcc7NgXMjUuFdquHDrIZpzZw0.woff2
+/var/www/html/assets/external/framer/assets/b6Y37FthZeALduNqHicBT6FutY.woff2
+/var/www/html/assets/external/framer/assets/BkDpl4ghaqvMi1btKFyG2tdbec.woff2
+/var/www/html/assets/external/framer/assets/cRJyLNuTJR5jbyKzGi33wU9cqIQ.woff2
+/var/www/html/assets/external/framer/assets/d3tHnaQIAeqiE5hGcRw4mmgWYU.woff2
+/var/www/html/assets/external/framer/assets/DolVirEGb34pEXEp8t8FQBSK4.woff2
+/var/www/html/assets/external/framer/assets/DpPBYI0sL4fYLgAkX8KXOPVt7c.woff2
+/var/www/html/assets/external/framer/assets/DXD0Q7LSl7HEvDzucnyLnGBHM.woff2
+/var/www/html/assets/external/framer/assets/EOr0mi4hNtlgWNn9if640EZzXCo.woff2
+/var/www/html/assets/external/framer/assets/GIryZETIX4IFypco5pYZONKhJIo.woff2
+/var/www/html/assets/external/framer/assets/H4TfENUY1rh8R9UaSD6vngjJP3M.woff2
+/var/www/html/assets/external/framer/assets/hyOgCu0Xnghbimh0pE8QTvtt2AU.woff2
+/var/www/html/assets/external/framer/assets/IETjvc5qzUaRoaruDpPSwCUM8.woff2
+/var/www/html/assets/external/framer/assets/JeYwfuaPfZHQhEG8U5gtPDZ7WQ.woff2
+/var/www/html/assets/external/framer/assets/lEJLP4R0yuCaMCjSXYHtJw72M.woff2
+/var/www/html/assets/external/framer/assets/NeGmSOXrPBfEFIy5YZeHq17LEDA.woff2
+/var/www/html/assets/external/framer/assets/oLCoaT3ioA0fHdJnWR9W6k7NY.woff2
+/var/www/html/assets/external/framer/assets/otTaNuNpVK4RbdlT7zDDdKvQBA.woff2
+/var/www/html/assets/external/framer/assets/oYaAX5himiTPYuN8vLWnqBbfD2s.woff2
+/var/www/html/assets/external/framer/assets/OYrD2tBIBPvoJXiIHnLoOXnY9M.woff2
+/var/www/html/assets/external/framer/assets/Qx95Xyt0Ka3SGhinnbXIGpEIyP4.woff2
+/var/www/html/assets/external/framer/assets/Sj0PCHQSBjFmEp6NBWg6FNaKc.woff2
+/var/www/html/assets/external/framer/assets/tUSCtfYVM1I1IchuyCwz9gDdQ.woff2
+/var/www/html/assets/external/framer/assets/v2q8JTTTs7McDMSEhnxAIBqd0.woff2
+/var/www/html/assets/external/framer/assets/VgYFWiwsAC5OYxAycRXXvhze58.woff2
+/var/www/html/assets/external/framer/assets/vQyevYAyHtARFwPqUzQGpnDs.woff2
+/var/www/html/assets/external/framer/assets/xYYWaj7wCU5zSQH0eXvSaS19wo.woff2
+/var/www/html/assets/external/framer/assets/Y9k9QrlZAqio88Klkmbd8VoMQc.woff2
+/var/www/html/assets/external/framer/assets/zAMK70AQRFSShJgUiaR5IiIhgzk.woff2
+
+Total Files: 63
+Total Size: 9,6M
+
+Failed Downloads:
+-----------------
+No errors
+
+Next Steps:
+-----------
+1. Run the URL replacement script:
+   /var/www/html/assets/external/replace-urls.sh
+
+2. Test the website:
+   - Check that all fonts load correctly
+   - Verify no 404 errors in browser console
+   - Test from Russian IP if possible
+
+3. Update Nginx configuration to serve local files:
+   location /assets/external/ {
+       alias /var/www/html/assets/external/;
+       expires 30d;
+       add_header Cache-Control "public, immutable";
+   }
