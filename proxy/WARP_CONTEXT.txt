@@ -1,47 +1,71 @@
-# DIVITA Project Context for Warp AI
+# DIVITA Project Context for Warp AI (v2)
 
-## Project Overview
-Proxy server setup for divita.ae to bypass Russian internet blocks.
-Server: root@divita.ae | Directory: /var/www/html
+## 🎯 Режим работы
+Solo разработка через Warp, без дедлайнов, фокус на качестве
 
-## Current Status
-- ✅ Proxy: Active
-- ✅ Images: Localized (0 errors)
-- ✅ Resources: Cached locally
-- ⚠️ Minor 404s: .mjs.map files (non-critical)
+## 📊 Текущий статус
+- ✅ Proxy: Работает
+- ⚠️ Ошибки: 456 x 404 для .map файлов (влияет на SEO)
+- ✅ Ресурсы: Локализованы
+- ⚠️ Мониторинг: Требует улучшений
 
-## Key Commands
+## 🔥 Приоритетные задачи
+1. Исправить .map файлы (критично для SEO)
+2. Починить HTTPS проверки в мониторинге
+3. Внедрить Puppeteer для UI тестов
+
+## 💻 Быстрые команды
 ```bash
-ssh root@divita.ae
-cd /var/www/html/proxy
-./scripts/monitor.sh          # Check status
-./scripts/test-proxy.sh       # Test endpoints
-./scripts/deploy.sh          # Deploy config
-tail -20 logs/error.log      # Check errors
+# Подключение
+ssh root@80.93.61.62
+cd /var/www/html
+
+# Статус
+./proxy/scripts/quick-status.sh     # Быстрая проверка
+./proxy/scripts/monitor.sh          # Детальный мониторинг
+tail -20 proxy/logs/error.log      # Последние ошибки
+
+# Git
+git status                          # Статус
+git add . && git commit -m "..."   # Коммит
+git push origin opus               # Пуш
 ```
 
-## Directory Structure
+## 📁 Структура
+```
 /var/www/html/
-├── proxy/               # Main proxy config
-│   ├── scripts/        # Automation scripts
-│   ├── logs/          # Access/error logs
-│   └── README.md      # Full documentation
-├── assets/            # Localized resources
-└── index.html        # Main site
+├── index.html          # Монолит (планируется рефакторинг)
+├── assets/             # Локальные ресурсы
+├── proxy/              
+│   ├── scripts/        # Все скрипты автоматизации
+│   ├── logs/          # Логи и метрики
+│   └── cache/         # Кэш прокси
+└── DEVELOPMENT_PLAN.md # План разработки
+```
 
-## Quick Actions
-1. Status check: Run monitor.sh
-2. Test proxy: Run test-proxy.sh
-3. View logs: Check logs/error.log
-4. Update config: Edit nginx config → deploy.sh
+## 🛠 Рабочий процесс
+1. Выбрать задачу из DEVELOPMENT_PLAN.md
+2. Создать/изменить скрипты
+3. Протестировать
+4. Закоммитить с понятным сообщением
+5. Обновить документацию
 
-## Problem Resolution
-- New 404s → Run create-missing-module-stubs.sh
-- Performance → Check cache size, clear old files
-- Errors → Check error.log, test endpoints
+## ⚡ Полезные алиасы
+```bash
+alias status='./proxy/scripts/quick-status.sh'
+alias errors='tail -20 proxy/logs/error.log'
+alias www='cd /var/www/html'
+```
 
-## Important Files
-- README.md: Full documentation
-- QUICK_START.md: New team member guide
-- /etc/nginx/sites-available/divita: Nginx config
+## 📝 Правила коммитов
+- feat: новая функция
+- fix: исправление
+- docs: документация
+- test: тесты
+- chore: рутина
 
+## 🎮 Что делать дальше?
+Смотри DEVELOPMENT_PLAN.md для полного списка задач
+
+---
+Обновлено: $(date)
