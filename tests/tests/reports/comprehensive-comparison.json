@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-08-01T18:55:11.839Z",
+  "comparison": {
+    "local": {
+      "error": "Navigation timeout of 20000 ms exceeded"
+    },
+    "original": {
+      "error": "Navigation timeout of 30000 ms exceeded"
+    }
+  },
+  "differences": [],
+  "summary": {}
+}

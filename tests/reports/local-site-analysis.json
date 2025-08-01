@@ -1,0 +1,48 @@
+{
+  "timestamp": "2025-08-01T18:57:02.191Z",
+  "loadTime": 1922,
+  "analysis": {
+    "title": "Home",
+    "url": "https://80.93.61.62/",
+    "lang": "en",
+    "description": "",
+    "generator": "Framer e0edd7a",
+    "hasMain": false,
+    "hasNav": true,
+    "hasFooter": false,
+    "elements": {
+      "images": 17,
+      "links": 7,
+      "buttons": 0,
+      "forms": 0,
+      "scripts": 7,
+      "stylesheets": 0,
+      "divs": 385
+    },
+    "bodyTextLength": 4442,
+    "containsFramer": true,
+    "containsDivita": true,
+    "visibleText": "LAND IS AN OPPORTUNITY\nWe turn it into strategy, architecture and capital.\nFrom Vision To Location. \nNavigate Development Zones.\nMap\nEng\n01\nAdvantages\nUAE – Key Land Investment Advantages\n1 / 6"
+  },
+  "performance": {
+    "domContentLoaded": 630,
+    "loadComplete": -1754074618031,
+    "domInteractive": 628
+  },
+  "network": {
+    "totalResources": 27,
+    "resourceTypes": {
+      "png?scale-down-to=4096": 1,
+      "png?scale-down-to=512": 1,
+      "jpg?scale-down-to=1024": 1,
+      "png?scale-down-to=1024": 2,
+      "jpg": 2,
+      "jpg?scale-down-to=512": 2,
+      "woff2": 9,
+      "mjs": 8,
+      "png?scale-down-to=2048": 1
+    },
+    "totalTransferSize": 0
+  },
+  "screenshot": "tests/screenshots/local-detailed-1754074620597.png"
+}

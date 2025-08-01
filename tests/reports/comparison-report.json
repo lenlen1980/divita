@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-08-01T19:15:15.932Z",
+  "results": {
+    "original": {
+      "status": "error",
+      "loadTime": 0,
+      "title": "",
+      "keyPhrase": false
+    },
+    "ours": {
+      "status": "success",
+      "loadTime": 2378,
+      "title": "Home",
+      "keyPhrase": true
+    }
+  },
+  "score": 50
+}

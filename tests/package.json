@@ -1,14 +1,19 @@
 {
-  "name": "tests",
+  "name": "divita-tests",
   "version": "1.0.0",
+  "description": "Puppeteer tests for DIVITA project comparison",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ui/comprehensive-https-comparison.js",
+    "test:quick": "node ui/https-test.js",
+    "test:local": "node ui/local-test.js",
+    "test:working": "node ui/working-comparison.js",
+    "screenshots": "ls -la screenshots/",
+    "reports": "cat reports/comparison-report.json"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["puppeteer", "testing", "divita", "comparison"],
+  "author": "DIVITA Team",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "chalk": "^5.4.1",
     "pixelmatch": "^7.1.0",

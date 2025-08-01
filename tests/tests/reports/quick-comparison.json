@@ -1,13 +1,13 @@
 {
-  "timestamp": "2025-08-01T18:51:26.803Z",
+  "timestamp": "2025-08-01T19:11:56.739Z",
   "tests": [
     {
       "site": "local",
-      "url": "https://80.93.61.62",
+      "url": "http://80.93.61.62",
       "loadTime": 0,
       "title": "",
       "errors": [
-        "net::ERR_CERT_COMMON_NAME_INVALID at https://80.93.61.62"
+        "net::ERR_BLOCKED_BY_CLIENT at http://80.93.61.62"
       ],
       "elements": {},
       "status": "error"

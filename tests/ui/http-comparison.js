@@ -6,6 +6,7 @@ async function httpComparison() {
     
     const browser = await puppeteer.launch({
         headless: true,
+ignoreHTTPSErrors: true,
         args: [
             '--no-sandbox', 
             '--disable-setuid-sandbox',
@@ -16,10 +17,10 @@ async function httpComparison() {
     const page = await browser.newPage();
     
     try {
-        console.log('\n🔍 Testing LOCAL site: http://80.93.61.62');
+        console.log('\n🔍 Testing LOCAL site: https://80.93.61.62');
         
         const startTime = Date.now();
-        await page.goto('http://80.93.61.62', { 
+        await page.goto('https://80.93.61.62', { 
             waitUntil: 'domcontentloaded',
             timeout: 15000 
         });
